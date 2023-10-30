@@ -11,6 +11,8 @@ public class NoteObject : MonoBehaviour
 
     private bool obtained;
 
+    public GameObject hitEffect, goodEffect, perfectEffect, missEffect;
+
     void Start()
     {
         
@@ -22,7 +24,23 @@ public class NoteObject : MonoBehaviour
         {
             if(canBePressed)
             {
-                GameManager.instance.NoteHit();
+                //GameManager.instance.NoteHit();
+
+                if(Mathf.Abs(transform.position.y) > 0.25)
+                {
+                    GameManager.instance.NormalHit();
+                    Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
+                }
+                else if(Mathf.Abs(transform.position.y) > 0.05f)
+                {
+                    GameManager.instance.GoodHit();
+                    Instantiate(goodEffect, transform.position, goodEffect.transform.rotation);
+                }
+                else
+                {
+                    GameManager.instance.PerfectHit();
+                    Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
+                }
 
                 obtained = true;
 
@@ -48,6 +66,7 @@ public class NoteObject : MonoBehaviour
             if (!obtained)
             {
                 GameManager.instance.NoteMiss();
+                Instantiate(missEffect, transform.position, missEffect.transform.rotation);
             }
         }
     }

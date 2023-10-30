@@ -514,6 +514,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 97
+  hitEffect: {fileID: 3000064286179309436, guid: aa108799f78d1824b9d4ce22bb57904c, type: 3}
+  goodEffect: {fileID: 5112479264767041978, guid: d7cd5cebc61d4a9478385f853f194dbb, type: 3}
+  perfectEffect: {fileID: 8343530784979216831, guid: 80b97dcaa84b42547ae1f237d476d3a2, type: 3}
+  missEffect: {fileID: 6978192961167514709, guid: 45d3d670cb52da74b9850f76f7569e6d, type: 3}
 --- !u!212 &220512317
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -772,6 +776,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 97
+  hitEffect: {fileID: 3000064286179309436, guid: aa108799f78d1824b9d4ce22bb57904c, type: 3}
+  goodEffect: {fileID: 5112479264767041978, guid: d7cd5cebc61d4a9478385f853f194dbb, type: 3}
+  perfectEffect: {fileID: 8343530784979216831, guid: 80b97dcaa84b42547ae1f237d476d3a2, type: 3}
+  missEffect: {fileID: 6978192961167514709, guid: 45d3d670cb52da74b9850f76f7569e6d, type: 3}
 --- !u!1 &325538175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1791,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 100
+  hitEffect: {fileID: 3000064286179309436, guid: aa108799f78d1824b9d4ce22bb57904c, type: 3}
+  goodEffect: {fileID: 5112479264767041978, guid: d7cd5cebc61d4a9478385f853f194dbb, type: 3}
+  perfectEffect: {fileID: 8343530784979216831, guid: 80b97dcaa84b42547ae1f237d476d3a2, type: 3}
+  missEffect: {fileID: 6978192961167514709, guid: 45d3d670cb52da74b9850f76f7569e6d, type: 3}
 --- !u!212 &770319617
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1909,6 +1921,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 59
+  hitEffect: {fileID: 3000064286179309436, guid: aa108799f78d1824b9d4ce22bb57904c, type: 3}
+  goodEffect: {fileID: 5112479264767041978, guid: d7cd5cebc61d4a9478385f853f194dbb, type: 3}
+  perfectEffect: {fileID: 8343530784979216831, guid: 80b97dcaa84b42547ae1f237d476d3a2, type: 3}
+  missEffect: {fileID: 6978192961167514709, guid: 45d3d670cb52da74b9850f76f7569e6d, type: 3}
 --- !u!212 &779622018
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2109,11 +2125,18 @@ MonoBehaviour:
   BS: {fileID: 1769578605}
   currentScore: 0
   scorePerNote: 100
+  scorePerGoodNote: 125
+  scorePerPerfectNote: 150
   currentMultiplier: 1
   multiplierTracker: 0
   multiplierThresholds: 040000000800000010000000
   scoreText: {fileID: 1479127574}
   multiText: {fileID: 1505179153}
+  totalNotes: 0
+  normalHits: 0
+  goodHits: 0
+  perfectHits: 0
+  missedHits: 0
 --- !u!4 &952203298
 Transform:
   m_ObjectHideFlags: 0
@@ -2798,6 +2821,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 59
+  hitEffect: {fileID: 3000064286179309436, guid: aa108799f78d1824b9d4ce22bb57904c, type: 3}
+  goodEffect: {fileID: 5112479264767041978, guid: d7cd5cebc61d4a9478385f853f194dbb, type: 3}
+  perfectEffect: {fileID: 8343530784979216831, guid: 80b97dcaa84b42547ae1f237d476d3a2, type: 3}
+  missEffect: {fileID: 6978192961167514709, guid: 45d3d670cb52da74b9850f76f7569e6d, type: 3}
 --- !u!1 &1562360336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2924,6 +2951,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 107
+  hitEffect: {fileID: 3000064286179309436, guid: aa108799f78d1824b9d4ce22bb57904c, type: 3}
+  goodEffect: {fileID: 5112479264767041978, guid: d7cd5cebc61d4a9478385f853f194dbb, type: 3}
+  perfectEffect: {fileID: 8343530784979216831, guid: 80b97dcaa84b42547ae1f237d476d3a2, type: 3}
+  missEffect: {fileID: 6978192961167514709, guid: 45d3d670cb52da74b9850f76f7569e6d, type: 3}
 --- !u!1 &1596979156
 GameObject:
   m_ObjectHideFlags: 0
@@ -3050,6 +3081,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 100
+  hitEffect: {fileID: 3000064286179309436, guid: aa108799f78d1824b9d4ce22bb57904c, type: 3}
+  goodEffect: {fileID: 5112479264767041978, guid: d7cd5cebc61d4a9478385f853f194dbb, type: 3}
+  perfectEffect: {fileID: 8343530784979216831, guid: 80b97dcaa84b42547ae1f237d476d3a2, type: 3}
+  missEffect: {fileID: 6978192961167514709, guid: 45d3d670cb52da74b9850f76f7569e6d, type: 3}
 --- !u!1 &1601014004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,6 +3460,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 100
+  hitEffect: {fileID: 3000064286179309436, guid: aa108799f78d1824b9d4ce22bb57904c, type: 3}
+  goodEffect: {fileID: 5112479264767041978, guid: d7cd5cebc61d4a9478385f853f194dbb, type: 3}
+  perfectEffect: {fileID: 8343530784979216831, guid: 80b97dcaa84b42547ae1f237d476d3a2, type: 3}
+  missEffect: {fileID: 6978192961167514709, guid: 45d3d670cb52da74b9850f76f7569e6d, type: 3}
 --- !u!212 &1823721690
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3551,6 +3590,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   keyToPress: 107
+  hitEffect: {fileID: 3000064286179309436, guid: aa108799f78d1824b9d4ce22bb57904c, type: 3}
+  goodEffect: {fileID: 5112479264767041978, guid: d7cd5cebc61d4a9478385f853f194dbb, type: 3}
+  perfectEffect: {fileID: 8343530784979216831, guid: 80b97dcaa84b42547ae1f237d476d3a2, type: 3}
+  missEffect: {fileID: 6978192961167514709, guid: 45d3d670cb52da74b9850f76f7569e6d, type: 3}
 --- !u!212 &1866419708
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4181,7 +4224,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e3903f052f6e1c84385cd598b244e788, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
