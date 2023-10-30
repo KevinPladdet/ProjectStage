@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    public int currentScore;
+    public int scorePerNote = 100;
+
     void Start()
     {
         instance = this;
@@ -35,6 +38,8 @@ public class GameManager : MonoBehaviour
     public void NoteHit()
     {
         Debug.Log("Hit");
+
+        currentScore += scorePerNote;
     }
 
     public void NoteMiss()
