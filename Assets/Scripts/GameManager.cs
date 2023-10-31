@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         if (!startPlaying)
         {
-            if (Input.anyKeyDown)
+            if (Input.anyKeyDown) // Make something so that it counts down the text and shows the controls until the game starts
             {
                 startPlaying = true;
                 BS.hasStarted = true;
