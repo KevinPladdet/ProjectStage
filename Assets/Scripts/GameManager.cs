@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public AudioSource Music;
 
     public bool startPlaying;
+    bool onlyOnce = false;
 
     public BeatScroller BS;
 
@@ -36,6 +37,10 @@ public class GameManager : MonoBehaviour
     public GameObject resultsScreen;
     public TextMeshProUGUI percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
 
+    public GameObject keysDisplay;
+    public GameObject songStartText;
+    public TextMeshProUGUI songCountdownText;
+
     void Start()
     {
         instance = this;
@@ -50,12 +55,9 @@ public class GameManager : MonoBehaviour
     {
         if (!startPlaying)
         {
-            if (Input.anyKeyDown) // Make something so that it counts down the text and shows the controls until the game starts
+            if(!onlyOnce)
             {
-                startPlaying = true;
-                BS.hasStarted = true;
-
-                Music.Play();
+                StartCoroutine(startingSong());
             }
         }
         else
@@ -163,5 +165,22 @@ public class GameManager : MonoBehaviour
         multiText.text = "Multiplier: x" + currentMultiplier;
 
         missedHits++;
+    }
+
+    IEnumerator startingSong()
+    {
+        onlyOnce = true;
+        songCountdownText.text = "3";
+        yield return new WaitForSeconds(1f);
+        songCountdownText.text = "2";
+        yield return new WaitForSeconds(1f);
+        songCountdownText.text = "1";
+        yield return new WaitForSeconds(1f);
+        songStartText.SetActive(false);
+        keysDisplay.SetActive(false);
+        startPlaying = true;
+        BS.hasStarted = true;
+
+        Music.Play();
     }
 }

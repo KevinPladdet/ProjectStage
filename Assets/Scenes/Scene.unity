@@ -1144,12 +1144,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 367564158}
-  m_RootOrder: 1
+  m_Father: {fileID: 329124996}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 217, y: -208}
+  m_AnchoredPosition: {x: 485, y: -147}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &180191943
@@ -1668,7 +1668,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 180191942}
   m_Father: {fileID: 367564158}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1952,7 +1953,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 329124996}
-  - {fileID: 180191942}
   - {fileID: 1393920097}
   m_Father: {fileID: 1605572182}
   m_RootOrder: 4
@@ -4738,6 +4738,9 @@ MonoBehaviour:
   missesText: {fileID: 901670520}
   rankText: {fileID: 1421932729}
   finalScoreText: {fileID: 388136285}
+  keysDisplay: {fileID: 1393920096}
+  songStartText: {fileID: 329124995}
+  songCountdownText: {fileID: 180191943}
 --- !u!4 &952203298
 Transform:
   m_ObjectHideFlags: 0
@@ -7161,7 +7164,7 @@ RectTransform:
   - {fileID: 1546341239}
   - {fileID: 1331815749}
   m_Father: {fileID: 367564158}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
