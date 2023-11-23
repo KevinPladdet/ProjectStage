@@ -7,7 +7,7 @@ public class NoteObject : MonoBehaviour
 
     public bool canBePressed;
 
-    public KeyCode keyToPress;
+    public string keyToPress;
 
     private bool obtained;
 
@@ -15,12 +15,28 @@ public class NoteObject : MonoBehaviour
 
     void Start()
     {
-        
+      
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(keyToPress))
+        if (name == "BlueSquare")
+        {
+            keyToPress = PlayerPrefs.GetString("CustomKeyBlue");
+        }
+        if (name == "RedSquare")
+        {
+            keyToPress = PlayerPrefs.GetString("CustomKeyRed");
+        }
+        if (name == "YellowSquare")
+        {
+            keyToPress = PlayerPrefs.GetString("CustomKeyYellow");
+        }
+        if (name == "GreenSquare")
+        {
+            keyToPress = PlayerPrefs.GetString("CustomKeyGreen");
+        }
+        if (Input.GetKeyDown(keyToPress.ToLower()))
         {
             if(canBePressed)
             {
