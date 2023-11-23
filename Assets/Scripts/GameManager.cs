@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public bool startPlaying;
     bool onlyOnce = false;
+    bool musicHasStarted = false;
 
     public BeatScroller BS;
 
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Application.runInBackground = true;
         instance = this;
 
         scoreText.text = "Score: 0";
@@ -55,61 +57,63 @@ public class GameManager : MonoBehaviour
     {
         if (!startPlaying)
         {
-            if(!onlyOnce)
+            if (!onlyOnce)
             {
                 StartCoroutine(startingSong());
             }
         }
         else
         {
-            if(!Music.isPlaying && !resultsScreen.activeInHierarchy)
+            if (Application.isFocused)
             {
-                resultsScreen.SetActive(true);
-                normalsText.text = normalHits.ToString();
-                goodsText.text = goodHits.ToString();
-                perfectsText.text = perfectHits.ToString();
-                missesText.text = missedHits.ToString();
-
-                float totalHit = normalHits + goodHits + perfectHits;
-                float percentHit = (totalHit / totalNotes) * 100;
-
-                percentHitText.text = percentHit.ToString("F1") + "%"; // F1 means that it shows 1 decimal
-
-                string rankVal = "";
-
-                switch (percentHit)
+                if (Music != null && !Music.isPlaying && musicHasStarted && !resultsScreen.activeInHierarchy)
                 {
-                    case >95:
-                        rankVal = "S";
-                        rankText.color = new Color32(195, 150, 0, 255);
-                        break;
-                    case >85:
-                        rankVal = "A";
-                        rankText.color = new Color32(0, 255, 0, 255);
-                        break;
-                    case >70:
-                        rankVal = "B";
-                        rankText.color = new Color32(0, 0, 255, 255);
-                        break;
-                    case >55:
-                        rankVal = "C";
-                        rankText.color = new Color32(255, 118, 0, 255);
-                        break;
-                    case >40:
-                        rankVal = "D";
-                        rankText.color = new Color32(135, 91, 63, 255);
-                        break;
-                    case <40:
-                        rankVal = "F";
-                        rankText.color = new Color32(255, 0, 0, 255);
-                        break;
+                    resultsScreen.SetActive(true);
+                    normalsText.text = normalHits.ToString();
+                    goodsText.text = goodHits.ToString();
+                    perfectsText.text = perfectHits.ToString();
+                    missesText.text = missedHits.ToString();
+
+                    float totalHit = normalHits + goodHits + perfectHits;
+                    float percentHit = (totalHit / totalNotes) * 100;
+
+                    percentHitText.text = percentHit.ToString("F1") + "%"; // F1 means that it shows 1 decimal
+
+                    string rankVal = "";
+
+                    switch (percentHit)
+                    {
+                        case > 95:
+                            rankVal = "S";
+                            rankText.color = new Color32(195, 150, 0, 255);
+                            break;
+                        case > 85:
+                            rankVal = "A";
+                            rankText.color = new Color32(0, 255, 0, 255);
+                            break;
+                        case > 70:
+                            rankVal = "B";
+                            rankText.color = new Color32(0, 0, 255, 255);
+                            break;
+                        case > 55:
+                            rankVal = "C";
+                            rankText.color = new Color32(255, 118, 0, 255);
+                            break;
+                        case > 40:
+                            rankVal = "D";
+                            rankText.color = new Color32(135, 91, 63, 255);
+                            break;
+                        case < 40:
+                            rankVal = "F";
+                            rankText.color = new Color32(255, 0, 0, 255);
+                            break;
+                    }
+
+                    rankText.text = rankVal;
+
+                    finalScoreText.text = currentScore.ToString();
+                    finalScoreText.color = rankText.color;
                 }
-
-                rankText.text = rankVal;
-
-                finalScoreText.text = currentScore.ToString();
-                finalScoreText.color = rankText.color;
-
             }
         }
     }
@@ -182,5 +186,6 @@ public class GameManager : MonoBehaviour
         BS.hasStarted = true;
 
         Music.Play();
+        musicHasStarted = true;
     }
 }
