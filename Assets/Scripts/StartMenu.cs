@@ -11,6 +11,8 @@ public class StartMenu : MonoBehaviour
     public GameObject StartMenuObject;
     public GameManager GM;
 
+    public GameObject InformationText;
+
     public bool CantStart = false;
 
     public void StartGame()
@@ -22,6 +24,10 @@ public class StartMenu : MonoBehaviour
             StartStuff.SetActive(true);
             GM.startPlaying = false;
             StartMenuObject.SetActive(false);
+        }
+        else
+        {
+            InformationText.SetActive(true);
         }
     }
 

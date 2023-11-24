@@ -23,6 +23,7 @@ public class Keybinds : MonoBehaviour
 
     [Header("Other")]
     public GameObject StartMenu;
+    public GameObject InformationText;
 
 
     private void Start()
@@ -59,13 +60,11 @@ public class Keybinds : MonoBehaviour
                         else
                         {
                             blueButton.text = "Wrong Input";
-                            EditorUtility.DisplayDialog("Skill issue", "You can't use the same key twice.", "OK");
                         }
                     }
                     else
                     {
                         blueButton.text = "Wrong Input";
-                        EditorUtility.DisplayDialog("You cannot use mouse button, only keyboard buttons.", "Please use a key from your keyboard.", "OK");
                     }
                     PlayerPrefs.Save();
                 }
@@ -89,13 +88,11 @@ public class Keybinds : MonoBehaviour
                         else
                         {
                             redButton.text = "Wrong Input";
-                            EditorUtility.DisplayDialog("Skill issue", "You can't use the same key twice.", "OK");
                         }
                     }
                     else
                     {
                         redButton.text = "Wrong Input";
-                        EditorUtility.DisplayDialog("You cannot use mouse button, only keyboard buttons.", "Please use a key from your keyboard.", "OK");
                     }
                     PlayerPrefs.Save();
                 }
@@ -119,13 +116,11 @@ public class Keybinds : MonoBehaviour
                         else
                         {
                             yellowButton.text = "Wrong Input";
-                            EditorUtility.DisplayDialog("Skill issue", "You can't use the same key twice.", "OK");
                         }
                     }
                     else
                     {
                         yellowButton.text = "Wrong Input";
-                        EditorUtility.DisplayDialog("You cannot use mouse button, only keyboard buttons.", "Please use a key from your keyboard.", "OK");
                     }
                     PlayerPrefs.Save();
                 }
@@ -149,13 +144,11 @@ public class Keybinds : MonoBehaviour
                         else
                         {
                             greenButton.text = "Wrong Input";
-                            EditorUtility.DisplayDialog("Skill issue", "You can't use the same key twice.", "OK");
                         }
                     }
                     else
                     {
                         greenButton.text = "Wrong Input";
-                        EditorUtility.DisplayDialog("You cannot use mouse button, only keyboard buttons.", "Please use a key from your keyboard.", "OK");
                     }
                     PlayerPrefs.Save();
                 }
@@ -169,6 +162,7 @@ public class Keybinds : MonoBehaviour
         else
         {
             StartMenu.GetComponent<StartMenu>().CantStart = false;
+            InformationText.SetActive(false);
         }
     }
 
