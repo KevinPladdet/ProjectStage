@@ -15,6 +15,15 @@ public class Keybinds : MonoBehaviour
     [SerializeField] public TextMeshProUGUI yellowButton;
     [SerializeField] public TextMeshProUGUI greenButton;
 
+    [Header("Keys")]
+    [SerializeField] public TextMeshProUGUI Key1;
+    [SerializeField] public TextMeshProUGUI Key2;
+    [SerializeField] public TextMeshProUGUI Key3;
+    [SerializeField] public TextMeshProUGUI Key4;
+
+    [Header("Other")]
+    public GameObject StartMenu;
+
 
     private void Start()
     {
@@ -22,6 +31,12 @@ public class Keybinds : MonoBehaviour
         redButton.text = PlayerPrefs.GetString("CustomKeyRed");
         yellowButton.text = PlayerPrefs.GetString("CustomKeyYellow");
         greenButton.text = PlayerPrefs.GetString("CustomKeyGreen");
+
+        Key1.text = blueButton.text;
+        Key2.text = redButton.text;
+        Key3.text = yellowButton.text;
+        Key4.text = greenButton.text;
+
     }
 
     private void Update()
@@ -36,13 +51,21 @@ public class Keybinds : MonoBehaviour
                     if (reg.IsMatch(keycode.ToString()))
                     {
                         blueButton.text = keycode.ToString();
-                        PlayerPrefs.SetString("CustomKeyBlue", keycode.ToString());
+                        if (blueButton.text != redButton.text && blueButton.text != yellowButton.text && blueButton.text != greenButton.text)
+                        {
+                            PlayerPrefs.SetString("CustomKeyBlue", keycode.ToString());
+                            Key1.text = blueButton.text;
+                        }
+                        else
+                        {
+                            blueButton.text = "Wrong Input";
+                            EditorUtility.DisplayDialog("Skill issue", "You can't use the same key twice.", "OK");
+                        }
                     }
                     else
                     {
-                        blueButton.text = "A";
+                        blueButton.text = "Wrong Input";
                         EditorUtility.DisplayDialog("You cannot use mouse button, only keyboard buttons.", "Please use a key from your keyboard.", "OK");
-                        PlayerPrefs.SetString("CustomKeyBlue", blueButton.text.ToString());
                     }
                     PlayerPrefs.Save();
                 }
@@ -58,13 +81,21 @@ public class Keybinds : MonoBehaviour
                     if (reg.IsMatch(keycode.ToString()))
                     {
                         redButton.text = keycode.ToString();
-                        PlayerPrefs.SetString("CustomKeyRed", keycode.ToString());
+                        if (redButton.text != blueButton.text && redButton.text != yellowButton.text && redButton.text != greenButton.text)
+                        {
+                            PlayerPrefs.SetString("CustomKeyRed", keycode.ToString());
+                            Key2.text = redButton.text;
+                        }
+                        else
+                        {
+                            redButton.text = "Wrong Input";
+                            EditorUtility.DisplayDialog("Skill issue", "You can't use the same key twice.", "OK");
+                        }
                     }
                     else
                     {
-                        redButton.text = "D";
+                        redButton.text = "Wrong Input";
                         EditorUtility.DisplayDialog("You cannot use mouse button, only keyboard buttons.", "Please use a key from your keyboard.", "OK");
-                        PlayerPrefs.SetString("CustomKeyRed", redButton.text.ToString());
                     }
                     PlayerPrefs.Save();
                 }
@@ -80,13 +111,21 @@ public class Keybinds : MonoBehaviour
                     if (reg.IsMatch(keycode.ToString()))
                     {
                         yellowButton.text = keycode.ToString();
-                        PlayerPrefs.SetString("CustomKeyYellow", keycode.ToString());
+                        if (yellowButton.text != redButton.text && yellowButton.text != blueButton.text && yellowButton.text != greenButton.text)
+                        {
+                            PlayerPrefs.SetString("CustomKeyYellow", keycode.ToString());
+                            Key3.text = yellowButton.text;
+                        }
+                        else
+                        {
+                            yellowButton.text = "Wrong Input";
+                            EditorUtility.DisplayDialog("Skill issue", "You can't use the same key twice.", "OK");
+                        }
                     }
                     else
                     {
-                        yellowButton.text = "J";
+                        yellowButton.text = "Wrong Input";
                         EditorUtility.DisplayDialog("You cannot use mouse button, only keyboard buttons.", "Please use a key from your keyboard.", "OK");
-                        PlayerPrefs.SetString("CustomKeyYellow", yellowButton.text.ToString());
                     }
                     PlayerPrefs.Save();
                 }
@@ -102,17 +141,34 @@ public class Keybinds : MonoBehaviour
                     if (reg.IsMatch(keycode.ToString()))
                     {
                         greenButton.text = keycode.ToString();
-                        PlayerPrefs.SetString("CustomKeyGreen", keycode.ToString());
+                        if (greenButton.text != redButton.text && greenButton.text != blueButton.text && greenButton.text != yellowButton.text)
+                        {
+                            PlayerPrefs.SetString("CustomKeyGreen", keycode.ToString());
+                            Key4.text = greenButton.text;
+                        }
+                        else
+                        {
+                            greenButton.text = "Wrong Input";
+                            EditorUtility.DisplayDialog("Skill issue", "You can't use the same key twice.", "OK");
+                        }
                     }
                     else
                     {
-                        greenButton.text = "L";
+                        greenButton.text = "Wrong Input";
                         EditorUtility.DisplayDialog("You cannot use mouse button, only keyboard buttons.", "Please use a key from your keyboard.", "OK");
-                        PlayerPrefs.SetString("CustomKeyGreen", greenButton.text.ToString());
                     }
                     PlayerPrefs.Save();
                 }
             }
+        }
+
+        if (blueButton.text == "Wrong Input" || redButton.text == "Wrong Input" || yellowButton.text == "Wrong Input" || greenButton.text == "Wrong Input")
+        {
+            StartMenu.GetComponent<StartMenu>().CantStart = true;
+        }
+        else
+        {
+            StartMenu.GetComponent<StartMenu>().CantStart = false;
         }
     }
 

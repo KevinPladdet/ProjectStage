@@ -11,13 +11,18 @@ public class StartMenu : MonoBehaviour
     public GameObject StartMenuObject;
     public GameManager GM;
 
+    public bool CantStart = false;
+
     public void StartGame()
     {
-        ScoreText.SetActive(true);
-        MultiplierText.SetActive(true);
-        StartStuff.SetActive(true);
-        GM.startPlaying = false;
-        StartMenuObject.SetActive(false);
+        if (!CantStart)
+        {
+            ScoreText.SetActive(true);
+            MultiplierText.SetActive(true);
+            StartStuff.SetActive(true);
+            GM.startPlaying = false;
+            StartMenuObject.SetActive(false);
+        }
     }
 
 }
