@@ -37,7 +37,6 @@ public class Keybinds : MonoBehaviour
         Key2.text = redButton.text;
         Key3.text = yellowButton.text;
         Key4.text = greenButton.text;
-
     }
 
     private void Update()
